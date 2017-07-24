@@ -5,31 +5,33 @@ package com.example.sith3.myapplication;
  */
 
 public class Messages {
-    public String getSender() {
-        return sender;
+
+
+    public String getSenderuid() {
+        return senderuid;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setSenderuid(String senderuid) {
+        this.senderuid = senderuid;
     }
 
-    public String getReciver() {
-        return reciver;
+    public String getReciveruid() {
+        return reciveruid;
     }
 
-    public void setReciver(String reciver) {
-        this.reciver = reciver;
+    public void setReciveruid(String reciveruid) {
+        this.reciveruid = reciveruid;
     }
 
-    public String getData() {
-        return data;
+    public String getMeassage() {
+        return meassage;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setMeassage(String meassage) {
+        this.meassage = meassage;
     }
 
-    String sender;
-    String reciver;
-    String data;
+    String senderuid;
+    String reciveruid;
+    String meassage;
 }
