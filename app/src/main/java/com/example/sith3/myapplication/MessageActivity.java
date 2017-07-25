@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ public class MessageActivity extends AppCompatActivity {
     private DatabaseReference mData;
     private FirebaseDatabase mF;
    private FirebaseAuth mAuth;
-    private RecyclerView list;
+    private RecyclerView measagelist;
 
 
 
@@ -45,11 +47,10 @@ public class MessageActivity extends AppCompatActivity {
        uid = (TextView) findViewById(R.id.textView2);
         uid.setText(model.getUid());
 
-//        measagelist = (RecyclerView) findViewById(R.id.mlist);
-//        measagelist.setLayoutManager(new LinearLayoutManager(this));
+       measagelist = (RecyclerView) findViewById(R.id.list);
+        measagelist.setLayoutManager(new LinearLayoutManager(this));
 
-        list = (RecyclerView) findViewById(R.id.list);
-        list.setLayoutManager(new LinearLayoutManager(this));
+
 
 
      text = (EditText) findViewById(R.id.editText4);
@@ -84,12 +85,13 @@ public class MessageActivity extends AppCompatActivity {
 
          Toast.makeText(this, "enter data", Toast.LENGTH_SHORT).show();
 
+         text.setText("");
 
 
 
     }
 
-    private FirebaseRecyclerAdapter<Messages,MeassageAdapter> mAdapter;
+    private FirebaseRecyclerAdapter<Messages,RecyclerView.ViewHolder> mAdapter;
 
     @Override
     public void onBackPressed() {
@@ -102,29 +104,135 @@ public class MessageActivity extends AppCompatActivity {
 
     private void loadmessage(){
 
+
+
         final String senderuid=mAuth.getCurrentUser().getUid();
         final String reciverid=model.getUid().toString();
 
         final DatabaseReference message=FirebaseDatabase.getInstance().getReference();
         Query query=message.child("message").child(senderuid).child(reciverid);
 
-        mAdapter=new FirebaseRecyclerAdapter<Messages, MeassageAdapter>(Messages.class, R.layout.meassgetext,MeassageAdapter.class,query) {
+        mAdapter=new FirebaseRecyclerAdapter<Messages, RecyclerView.ViewHolder>(Messages.class, R.layout.meassgetext,RecyclerView.ViewHolder.class,query) {
+
+            private final int OUTGOING=1;
+            private final int INCOMING=2;
+
+
             @Override
-            protected void populateViewHolder(final MeassageAdapter viewHolder, final Messages ms, int position) {
+            protected void populateViewHolder(final RecyclerView.ViewHolder viewHolder, final Messages ms, int position) {
+                if (currentuid(ms)){
+                  populateviewholdeeroutgoing((Outgoing) viewHolder,ms);
+                }else {
+                    populateviewholdeerin((Incoming) viewHolder,ms);
+                }
 
 
 
-                viewHolder.bind(ms, new View.OnClickListener() {
+            }
+
+
+
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view;
+                switch (viewType){
+
+                    case OUTGOING:
+
+                        view= LayoutInflater.from(parent.getContext()).inflate(R.layout.meassgetext,parent,false);
+                        return new Outgoing(view);
+
+                    case INCOMING:
+
+                        view= LayoutInflater.from(parent.getContext()).inflate(R.layout.measstext2,parent,false);
+                        return new Incoming(view);
+
+                }
+                return super.onCreateViewHolder(parent,viewType);
+            }
+
+            @Override
+            public int getItemViewType(int position) {
+              super.getItemViewType(position);
+
+                Messages ms=getItem(position);
+                if (currentuid(ms)){
+
+                    return OUTGOING;
+                }
+                return INCOMING;
+            }
+
+            private boolean currentuid(Messages ms) {
+                String senderuid=mAuth.getCurrentUser().getUid();
+                if (senderuid.equalsIgnoreCase(ms.getSenderuid())){
+
+                    return true;
+                }
+                return false;
+            }
+
+            private void populateviewholdeeroutgoing(Outgoing outgoing, Messages ms){
+
+                outgoing.bind(ms, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                     }
                 });
-
             }
+
+
+
+
+            private void populateviewholdeerin(Incoming incoming,Messages ms){
+
+                incoming.bind(ms, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+            }
+
+            class Outgoing extends RecyclerView.ViewHolder{
+
+                TextView out;
+
+                public Outgoing(View itemView) {
+                    super(itemView);
+                    out= (TextView) itemView.findViewById(R.id.data);
+
+                }
+
+                public void bind(Messages ms, View.OnClickListener clickListener){
+
+                    out.setText(ms.getMeassage());
+
+                }
+            }
+
+            class Incoming extends RecyclerView.ViewHolder{
+
+                TextView in;
+
+                public Incoming(View itemView) {
+                    super(itemView);
+                    in= (TextView) itemView.findViewById(R.id.reciver);
+
+                }
+
+                public void bind(Messages ms, View.OnClickListener clickListener){
+
+
+                    in.setText(ms.getMeassage());
+
+                }
+            }
+
         };
 
-    list.setAdapter(mAdapter);
+        measagelist.setAdapter(mAdapter);
 
 
 
@@ -132,4 +240,6 @@ public class MessageActivity extends AppCompatActivity {
 
 
     }
+
+
 }
