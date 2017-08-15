@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/card">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/relativeLayout5">
+
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:hint="   what are you up to?"
+                android:background="@color/white"
+                android:id="@+id/statuss"
+                android:textSize="20sp"
+                android:paddingTop="6dp"
+                />
+
+            <ImageView
+                android:id="@+id/imagepost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                app:srcCompat="@android:drawable/ic_menu_gallery"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/statuss"
+                android:layout_toEndOf="@+id/statuss"
+                android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:listitem="@layout/item_post"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_below="@+id/card">
+
+    </android.support.v7.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout2">
+
+        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+            android:id="@+id/bottomNavViewBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu="@menu/navigation"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
+</RelativeLayout>
+

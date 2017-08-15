@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="431dp"
+   >
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="431dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/card">
+
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="name"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_alignTop="@+id/userpic"
+                android:layout_toRightOf="@+id/caption"
+                android:layout_toEndOf="@+id/caption" />
+
+            <ImageView
+                android:id="@+id/likeheart"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/nolikes"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:src="@android:drawable/btn_star_big_on" />
+
+            <ImageView
+                android:id="@+id/imagepost"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/caption"
+                android:layout_marginTop="10dp"
+                android:foregroundGravity="center" />
+
+
+            <ImageView
+                android:id="@+id/comment"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@+id/nolikes"
+                android:layout_marginLeft="19dp"
+                android:layout_marginStart="19dp"
+                android:layout_toEndOf="@+id/nolikes"
+                android:layout_toRightOf="@+id/nolikes"
+                android:src="?android:attr/listChoiceIndicatorMultiple" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userpic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/likeheart"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/likeheart"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/common_google_signin_btn_icon_dark"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/userpic"
+                android:layout_alignStart="@+id/userpic"
+                android:layout_below="@+id/userpic"
+                android:layout_marginTop="18dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/nolikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="18dp"
+                android:layout_toEndOf="@+id/userpic"
+                android:layout_toRightOf="@+id/userpic"
+                android:text="TextView" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+</RelativeLayout>
