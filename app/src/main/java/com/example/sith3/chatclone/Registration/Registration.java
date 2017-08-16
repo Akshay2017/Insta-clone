@@ -256,22 +256,4 @@ public class Registration extends AppCompatActivity  {
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (mAuth.getCurrentUser() != null){
-
-            success(mAuth.getCurrentUser());
-
-        }
-    }
-
-    private void success(FirebaseUser currentUser) {
-
-        Intent i = new Intent(Registration.this , TimeLine.class);
-        finish();
-        startActivity(i);
-
-    }
 }

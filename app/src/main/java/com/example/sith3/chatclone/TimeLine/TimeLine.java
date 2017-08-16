@@ -6,13 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.sith3.chatclone.BottomNavigationView.BottomNavigationViewHelper;
+import com.example.sith3.chatclone.Models.Messages;
 import com.example.sith3.chatclone.Models.Post;
 import com.example.sith3.chatclone.Post.Comments;
 import com.example.sith3.chatclone.R;
@@ -27,6 +32,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.squareup.picasso.Picasso;
+
+import java.util.zip.Inflater;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -82,7 +89,8 @@ public class TimeLine extends AppCompatActivity {
     private void loadpost() {
     Query query=FirebaseDatabase.getInstance().getReference().child("post");
         mAdapter=new FirebaseRecyclerAdapter<Post, TimeLine.Postviewholder>(Post.class,R.layout.item_post,TimeLine.Postviewholder.class,query) {
-            @Override
+
+           @Override
             protected void populateViewHolder(final TimeLine.Postviewholder viewHolder, final Post ps, int position) {
 
                 mUserInfo=FirebaseDatabase.getInstance().getReference().child("friends").child(mAuth.getCurrentUser().getUid());
@@ -116,14 +124,10 @@ public class TimeLine extends AppCompatActivity {
 
                         }else {
 
-                            viewHolder.name.setVisibility(View.INVISIBLE);
-                            viewHolder.caption.setVisibility(View.INVISIBLE);
-                            viewHolder.like.setVisibility(View.INVISIBLE);
-                            viewHolder.circleImageViewuserpic.setVisibility(View.INVISIBLE);
-                            viewHolder.comment.setVisibility(View.INVISIBLE);
-                            viewHolder.nolikes.setVisibility(View.INVISIBLE);
 
-
+                            RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) viewHolder.r.getLayoutParams();
+                            lp.height = 0;
+                            viewHolder.r.setLayoutParams(lp);
                         }
 
 
@@ -136,7 +140,7 @@ public class TimeLine extends AppCompatActivity {
                     }
                 });
 
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+               viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -178,36 +182,42 @@ public class TimeLine extends AppCompatActivity {
                     }
                 });
 
-                viewHolder.comment.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+               viewHolder.comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                        Intent c=new Intent(TimeLine.this,Comments.class);
-                        c.putExtra(Comments.EXTRA,ps);
-                        startActivity(c);
-
-                    }
-                });
-
-                viewHolder.setLike(postkey);
+                Intent c=new Intent(TimeLine.this,Comments.class);
+                c.putExtra(Comments.EXTRA,ps);
+                startActivity(c);
 
             }
+        });
+
+        viewHolder.setLike(postkey);
+
+    }
 
 
         };
+
         postlist.setAdapter(mAdapter);
 
     }
+
+
     public static class Postviewholder extends RecyclerView.ViewHolder {
         CircleImageView circleImageViewuserpic;
         TextView name,caption,nolikes;
         ImageView postimage;
         ImageView like,comment;
+        RelativeLayout r;
+
         private DatabaseReference mLike;
         private FirebaseAuth mAuth;
         public Postviewholder(View itemView) {
             super(itemView);
             mAuth = FirebaseAuth.getInstance();
+            r= (RelativeLayout) itemView.findViewById(R.id.relv);
             mLike=FirebaseDatabase.getInstance().getReference().child("like");
             circleImageViewuserpic= (CircleImageView) itemView.findViewById(R.id.userpic);
             name= (TextView) itemView.findViewById(R.id.username);
@@ -218,6 +228,14 @@ public class TimeLine extends AppCompatActivity {
             comment= (ImageView) itemView.findViewById(R.id.comment);
 
         }
+
+        private void setLayoutInvisible() {
+
+            if (r.getVisibility() == View.VISIBLE) {
+                r.setVisibility(View.GONE);
+            }
+        }
+
 
         public void setLike(final String postkey){
 

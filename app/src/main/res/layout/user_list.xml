@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context="com.example.sith3.chatclone.User_List.UserList">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout2">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_bright"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
@@ -14,9 +33,9 @@
         tools:listitem="@layout/item_request_list"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:paddingTop="20dp"/>
+        android:paddingTop="20dp"
+        android:layout_below="@+id/appBarLayout2" />
 
 
 </RelativeLayout>

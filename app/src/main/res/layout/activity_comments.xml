@@ -6,15 +6,34 @@
     android:layout_height="match_parent"
     tools:context="com.example.sith3.chatclone.Post.Comments">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout2">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_bright"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/commentview"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:layout_above="@+id/commentsend"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        tools:listitem="@layout/item_comments_list" />
+        tools:listitem="@layout/item_comments_list"
+        android:layout_below="@+id/appBarLayout2" />
 
     <EditText
         android:id="@+id/usercomments"

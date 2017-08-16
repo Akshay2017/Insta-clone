@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class MessageActivity extends AppCompatActivity {
      private FriendsModel fmodel;
     private Button send;
     private EditText text;
+    private ImageView b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +49,17 @@ public class MessageActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
+        b= (ImageView) findViewById(R.id.back);
        measagelist = (RecyclerView) findViewById(R.id.list);
         measagelist.setLayoutManager(new LinearLayoutManager(this));
-
+b.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(MessageActivity.this , Friend_List.class);
+        finish();
+        startActivity(i);
+    }
+});
 
 
 

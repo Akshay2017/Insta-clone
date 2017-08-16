@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="15dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilepic"
         android:layout_width="50dp"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/list"
@@ -17,6 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/profilepic"
         android:layout_toRightOf="@+id/profilepic"
         android:paddingTop="8dp"
@@ -25,11 +29,12 @@
 
     <Button
         android:id="@+id/fr"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
         android:text="request" />
 
 </RelativeLayout>

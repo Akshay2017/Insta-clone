@@ -4,43 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true">
 
 
     <android.support.v7.widget.CardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/card">
+        android:layout_height="40dp">
 
 
         <RelativeLayout
+            android:id="@+id/relativeLayout5"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/relativeLayout5">
+            android:layout_height="40dp">
 
             <TextView
+                android:id="@+id/statuss"
                 android:layout_width="330dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
-                android:hint="   what are you up to?"
                 android:background="@color/white"
-                android:id="@+id/statuss"
-                android:textSize="20sp"
+                android:hint="   what are you up to?"
                 android:paddingTop="6dp"
-                />
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/imagepost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                app:srcCompat="@android:drawable/ic_menu_gallery"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/statuss"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/statuss"
-                android:layout_alignParentBottom="true" />
+                android:layout_toRightOf="@+id/statuss"
+                app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         </RelativeLayout>
 
@@ -52,25 +51,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        tools:listitem="@layout/item_post"
         android:layout_above="@+id/relativeLayout2"
-        android:layout_below="@+id/card">
+        android:layout_below="@+id/card"
+        tools:listitem="@layout/item_post">
 
     </android.support.v7.widget.RecyclerView>
+
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/relativeLayout2">
+        android:layout_alignParentBottom="true">
 
         <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
             android:id="@+id/bottomNavViewBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:menu="@menu/navigation"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:menu="@menu/navigation" />
     </RelativeLayout>
 
 </RelativeLayout>

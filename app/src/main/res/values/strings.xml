@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_chat_screen">ChatScreenActivity</string>
+    <string name="app_name">Chat Clone</string>
+    <string name="title_activity_main2">All Users</string>
+    <string name="title_activity_chat_screen">Login</string>
     <string name="title_activity_userprofile">Userprofile</string>
     <string name="title_activity_main">Main</string>
     <string name="title_home">Home</string>
@@ -25,5 +25,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_main5">Main5Activity</string>
+    <string name="title_activity_main5">Chat</string>
+    <string name="title_activity_main9">My TimeLine</string>
+    <string name="title_activity_main6">My TimeLine</string>
+    <string name="title_activity_main7">Commentss</string>
+    <string name="title_activity_main8">Registration</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
     tools:context="com.example.sith3.chatclone.Login.Login">
 
 
@@ -11,51 +12,51 @@
         android:id="@+id/loginemail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter your email"
-        android:layout_marginTop="72dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="Enter your email"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/loginpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/loginemail"
+        android:layout_alignLeft="@+id/loginemail"
+        android:layout_alignRight="@+id/loginemail"
+        android:layout_alignStart="@+id/loginemail"
+        android:layout_below="@+id/loginemail"
         android:layout_marginTop="45dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Enter your password"
-        android:layout_below="@+id/loginemail"
-        android:layout_alignLeft="@+id/loginemail"
-        android:layout_alignStart="@+id/loginemail"
-        android:layout_alignRight="@+id/loginemail"
-        android:layout_alignEnd="@+id/loginemail" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/log"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/loginpassword"
+        android:layout_alignLeft="@+id/loginpassword"
+        android:layout_alignRight="@+id/loginpassword"
+        android:layout_alignStart="@+id/loginpassword"
         android:layout_below="@+id/loginpassword"
         android:layout_marginTop="44dp"
-        android:text="Login"
-        android:layout_alignLeft="@+id/loginpassword"
-        android:layout_alignStart="@+id/loginpassword"
-        android:layout_alignRight="@+id/loginpassword"
-        android:layout_alignEnd="@+id/loginpassword"
-       />
+        android:background="?attr/colorBackgroundFloating"
+        android:text="Login" />
 
     <TextView
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
-        android:text="Register"
-        android:textSize="22dp"
-        android:gravity="center"
-        android:layout_below="@+id/log"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/log"
+        android:layout_marginTop="53dp"
+        android:gravity="center"
+        android:text="Register"
+        android:textSize="22dp" />
 </RelativeLayout>

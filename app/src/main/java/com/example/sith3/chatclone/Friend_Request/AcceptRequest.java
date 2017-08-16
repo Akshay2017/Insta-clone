@@ -116,8 +116,8 @@ public class AcceptRequest extends AppCompatActivity {
 
                             }else {
 
-                                viewHolder.un.setText("no friend request");
-                                viewHolder.acceptr.setVisibility(View.INVISIBLE);
+                                viewHolder.un.setVisibility(View.GONE);
+                                viewHolder.acceptr.setVisibility(View.GONE);
 
                             }
 

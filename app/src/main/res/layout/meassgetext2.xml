@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginRight="200dp"
+    android:layout_marginTop="25dp"
+    android:background="@drawable/balloon_incoming_normal"
+    android:orientation="vertical"
+    android:paddingBottom="1dp"
+    android:paddingTop="2dp">
 
     <TextView
         android:id="@+id/reciver"
@@ -13,6 +20,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="37dp"
+        android:paddingBottom="0dp"
         android:text="TextView"
         android:textSize="25sp" />
 </RelativeLayout>

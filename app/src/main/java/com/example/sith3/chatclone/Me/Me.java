@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.sith3.chatclone.BottomNavigationView.BottomNavigationViewHelper;
+import com.example.sith3.chatclone.Login.Login;
 import com.example.sith3.chatclone.R;
 import com.example.sith3.chatclone.Registration.Registration;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,7 +69,7 @@ public class Me extends AppCompatActivity {
             public void onClick(View v) {
 
                 FirebaseAuth.getInstance().signOut();
-                Intent log = new Intent(Me.this , Registration.class);
+                Intent log = new Intent(Me.this , Login.class);
 
                 startActivity(log);
             }

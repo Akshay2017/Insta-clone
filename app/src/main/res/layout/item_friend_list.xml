@@ -2,24 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="20dp">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/friendspic"
         android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+       android:layout_marginLeft="20dp"/>
 
     <TextView
         android:id="@+id/chatusers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_toEndOf="@+id/friendspic"
-        android:layout_toRightOf="@+id/friendspic"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:paddingTop="8dp"
         android:text="TextView"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/friendspic"
+        android:layout_toEndOf="@+id/friendspic" />
 </RelativeLayout>
