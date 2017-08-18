@@ -1,2 +1,2 @@
-"# MyApp" 
+"# Hike clone" 
 
