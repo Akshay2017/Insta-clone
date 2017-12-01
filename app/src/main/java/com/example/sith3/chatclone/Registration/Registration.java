@@ -9,10 +9,12 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sith3.chatclone.TimeLine.TimeLine;
@@ -34,8 +36,9 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class Registration extends AppCompatActivity  {
 
-    private Button sign , singup;
-    private EditText name,email,password;
+    private TextView singin;
+    private AppCompatButton singup;
+    private EditText name,email,password,repassword;
     private FirebaseAuth mAuth;
     private DatabaseReference mref;
     private StorageReference mStorageRef;
@@ -58,8 +61,20 @@ public class Registration extends AppCompatActivity  {
         name= (EditText) findViewById(R.id.editText2);
         email= (EditText) findViewById(R.id.editText);
         password= (EditText) findViewById(R.id.editText3);
-      //  sign= (Button) findViewById(R.id.button);
-        singup= (Button) findViewById(R.id.button3);
+        repassword= (EditText) findViewById(R.id.input_reEnterPassword);
+        singin= (TextView) findViewById(R.id.link_login);
+        singup= (AppCompatButton) findViewById(R.id.button3);
+
+        singin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the registration screen and return to the Login activity
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
         mProgress = new ProgressDialog(this);
 
@@ -180,28 +195,13 @@ public class Registration extends AppCompatActivity  {
     }
 
 
-
-
-  /*  private void signin() {
-
-
-        String emails=email.getText().toString().trim();
-        String passwords=password.getText().toString().trim();
-        mAuth.signInWithEmailAndPassword(emails , passwords).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-
-                    Intent i=new Intent(Registration.this,TimeLine.class);
-                    finish();
-                    startActivity(i);
-
-                }
-            }
-        });
-    }*/
-
     private void signup() {
+
+        if (!validate()) {
+            onSignupFailed();
+            return;
+        }
+
 
         final String names=name.getText().toString().trim();
         final String emails=email.getText().toString().trim();
@@ -255,5 +255,51 @@ public class Registration extends AppCompatActivity  {
        });
     }
 
+    private void onSignupFailed() {
+        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+
+        singup.setEnabled(true);
+    }
+
+    public boolean validate() {
+        boolean valid = true;
+
+        String uname = name.getText().toString();
+        String uemail = email.getText().toString();
+        String upassword = password.getText().toString();
+        String reEnterPassword = repassword.getText().toString();
+
+        if (uname.isEmpty() || uname.length() < 3) {
+            name.setError("at least 3 characters");
+            valid = false;
+        } else {
+            name.setError(null);
+        }
+
+
+        if (uemail.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(uemail).matches()) {
+            email.setError("enter a valid email address");
+            valid = false;
+        } else {
+            email.setError(null);
+        }
+
+
+        if (upassword.isEmpty() || upassword.length() < 6 || upassword.length() > 10) {
+            password.setError("between 4 and 10 alphanumeric characters");
+            valid = false;
+        } else {
+            password.setError(null);
+        }
+
+        if (reEnterPassword.isEmpty() || reEnterPassword.length() < 6 || reEnterPassword.length() > 10 || !(reEnterPassword.equals(upassword))) {
+            repassword.setError("Password Do not match");
+            valid = false;
+        } else {
+            repassword.setError(null);
+        }
+
+        return valid;
+    }
 
 }

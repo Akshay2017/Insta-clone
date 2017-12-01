@@ -143,12 +143,12 @@ public class UserList extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        final String uid= users.getUid();
-                        Toast.makeText(UserList.this, uid, Toast.LENGTH_SHORT).show();
-
-                        Intent a = new Intent(UserList.this , Request.class);
-                        a.putExtra(MessageActivity.EXTRA , users);
-                        startActivity(a);
+//                        final String uid= users.getUid();
+//                        Toast.makeText(UserList.this, uid, Toast.LENGTH_SHORT).show();
+//
+//                        Intent a = new Intent(UserList.this , Request.class);
+//                        a.putExtra(MessageActivity.EXTRA , users);
+//                        startActivity(a);
 
 
 

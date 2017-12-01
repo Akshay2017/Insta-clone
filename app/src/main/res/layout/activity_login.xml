@@ -1,62 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright"
     tools:context="com.example.sith3.chatclone.Login.Login">
 
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="56dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
 
-    <EditText
-        android:id="@+id/loginemail"
-        android:layout_width="300dp"
+
+    <!--  Email Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:ems="10"
-        android:hint="Enter your email"
-        android:inputType="textPersonName" />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText
+            android:id="@+id/loginemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/loginpassword"
-        android:layout_width="wrap_content"
+    <!--  Password Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/loginemail"
-        android:layout_alignLeft="@+id/loginemail"
-        android:layout_alignRight="@+id/loginemail"
-        android:layout_alignStart="@+id/loginemail"
-        android:layout_below="@+id/loginemail"
-        android:layout_marginTop="45dp"
-        android:ems="10"
-        android:hint="Enter your password"
-        android:inputType="textPassword" />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText
+            android:id="@+id/loginpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            />
+    </android.support.design.widget.TextInputLayout>
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/log"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/loginpassword"
-        android:layout_alignLeft="@+id/loginpassword"
-        android:layout_alignRight="@+id/loginpassword"
-        android:layout_alignStart="@+id/loginpassword"
-        android:layout_below="@+id/loginpassword"
-        android:layout_marginTop="44dp"
-        android:background="?attr/colorBackgroundFloating"
-        android:text="Login" />
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:text="Login"/>
 
     <TextView
         android:id="@+id/register"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/log"
-        android:layout_marginTop="53dp"
+        android:layout_marginBottom="24dp"
+        android:text="No account yet? Create one"
         android:gravity="center"
-        android:text="Register"
-        android:textSize="22dp" />
-</RelativeLayout>
+        android:textSize="16dip"
+        android:textColor="@color/colorPrimary"/>
+
+
+
+</LinearLayout>
+
+</ScrollView>

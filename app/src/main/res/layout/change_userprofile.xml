@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright"
     tools:context="com.example.sith3.chatclone.Me.Userprofile">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -12,7 +11,8 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginLeft="88dp"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ic_action_profile" />
 
     <Button
         android:id="@+id/uploadimage"
@@ -21,7 +21,8 @@
         android:layout_below="@+id/dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
-        android:background="@color/cardview_light_background"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg_rounded_corners"
         android:text="Change Profile" />
 
 

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyApp.iml" filepath="$PROJECT_DIR$/MyApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Insta-clone.iml" filepath="$PROJECT_DIR$/Insta-clone.iml" />
+      <module fileurl="file://C:\Users\Akshay\AndroidStudioProjects\Insta-clone\MyApp.iml" filepath="C:\Users\Akshay\AndroidStudioProjects\Insta-clone\MyApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

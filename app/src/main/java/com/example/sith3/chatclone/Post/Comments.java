@@ -98,6 +98,8 @@ public class Comments extends AppCompatActivity {
                 mUserInfo.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        String username=dataSnapshot.child("name").getValue().toString();
+                        viewHolder.username.setText(username);
                         String userpic=dataSnapshot.child("imageurl").getValue().toString();
                         Picasso.with(getApplicationContext()).load(userpic).into(viewHolder.circleImageViewuserpic);
                     }
@@ -114,12 +116,13 @@ public class Comments extends AppCompatActivity {
 
     public static class Commentviewholder extends RecyclerView.ViewHolder{
         CircleImageView circleImageViewuserpic;
-        TextView usercom;
+        TextView usercom,username;
 
         public Commentviewholder(View itemView) {
             super(itemView);
             circleImageViewuserpic= (CircleImageView) itemView.findViewById(R.id.cpic);
             usercom= (TextView) itemView.findViewById(R.id.userm);
+            username= (TextView) itemView.findViewById(R.id.usernamem);
         }
     }
 }

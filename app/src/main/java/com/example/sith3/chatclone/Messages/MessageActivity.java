@@ -2,6 +2,7 @@ package com.example.sith3.chatclone.Messages;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -52,6 +53,8 @@ public class MessageActivity extends AppCompatActivity {
         b= (ImageView) findViewById(R.id.back);
        measagelist = (RecyclerView) findViewById(R.id.list);
         measagelist.setLayoutManager(new LinearLayoutManager(this));
+
+
 b.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -68,11 +71,13 @@ b.setOnClickListener(new View.OnClickListener() {
         name = (TextView) findViewById(R.id.name);
         name.setText(fmodel.getName());
 
-        send= (Button) findViewById(R.id.send);
-        send.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabchat = (FloatingActionButton) findViewById(R.id.send);
+        fabchat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+
                 sendmessagetodatabase();
+
             }
         });
         loadmessage();

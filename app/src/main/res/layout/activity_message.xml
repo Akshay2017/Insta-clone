@@ -11,7 +11,7 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_bright">
+        android:background="@color/colorPrimary">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -29,56 +29,56 @@
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="328dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/appBarLayout"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="45sp"
-                android:layout_weight="1.08"
-                android:paddingLeft="70sp"
-                android:text="name"
-                android:textSize="38sp"
-                android:textStyle="bold" />
+                android:text="Uname"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:textColor="@color/white"/>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
 
-    <Button
-        android:id="@+id/send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="send" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="type your messages"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/send"
-        android:layout_toLeftOf="@+id/send" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_above="@+id/send"
-        android:layout_alignParentEnd="true"
+        android:layout_height="450dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/appBarLayout"
+        android:background="@drawable/catswhatsappbackground"
         tools:listitem="@layout/meassgetext1" />
 
+    <EditText
+            android:id="@+id/editText4"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:hint=" Type your messages"
+            android:inputType="textPersonName" />
 
-
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/send"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_alignTop="@+id/editText4"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/editText4"
+            android:layout_toRightOf="@+id/editText4"
+            android:clickable="true"
+            app:fabSize="auto"
+            app:srcCompat="@android:drawable/ic_menu_send" />
 
 </RelativeLayout>

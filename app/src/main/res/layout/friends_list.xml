@@ -9,7 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@color/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/appBarLayout2">
 
@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@color/colorPrimary"
             android:fitsSystemWindows="true"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
@@ -60,8 +60,5 @@
         android:layout_alignParentStart="true"
         tools:listitem="@layout/item_friend_list"
         android:layout_below="@+id/appBarLayout2" />
-
-
-    <include layout="@layout/content_main5" />
 
 </RelativeLayout>

@@ -35,6 +35,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
-        android:text="request" />
+        android:background="@drawable/button_bg_rounded_corners"
+        android:textColor="@color/white"
+        android:text="request"
+        android:layout_marginRight="10dp"/>
 
 </RelativeLayout>

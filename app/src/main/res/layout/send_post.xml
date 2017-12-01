@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="25dp"
     tools:context="com.example.sith3.chatclone.Me.Userprofile">
 
 
@@ -23,6 +24,8 @@
         android:layout_marginTop="62dp"
         android:text="Upload"
         android:layout_below="@+id/status"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg_rounded_corners"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -36,6 +39,7 @@
         android:layout_below="@+id/postimage"
         android:layout_marginTop="37dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
        android:hint="whats your mind ?" />
 

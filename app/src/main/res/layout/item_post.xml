@@ -11,98 +11,129 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="420dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="431dp"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/card">
 
-
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/userpic"
-                android:layout_marginTop="12dp"
-                android:layout_toEndOf="@+id/caption"
-                android:layout_toRightOf="@+id/caption"
-                android:text="name"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/likeheart"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignBottom="@+id/nolikes"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"
-                android:src="@android:drawable/btn_star_big_on" />
-
-            <ImageView
-                android:id="@+id/imagepost"
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/caption"
-                android:layout_marginTop="10dp"
-                android:foregroundGravity="center" />
-
-
-            <ImageView
-                android:id="@+id/comment"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignTop="@+id/nolikes"
-                android:layout_marginLeft="19dp"
-                android:layout_marginStart="19dp"
-                android:layout_toEndOf="@+id/nolikes"
-                android:layout_toRightOf="@+id/nolikes"
-                android:src="?android:attr/listChoiceIndicatorMultiple" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userpic"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/likeheart"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/likeheart"
-                android:layout_marginTop="13dp"
-                android:src="@drawable/common_google_signin_btn_icon_dark"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp" />
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/userpic"
-                android:layout_alignStart="@+id/userpic"
-                android:layout_below="@+id/userpic"
-                android:layout_marginTop="18dp"
-                android:text="TextView" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userpic"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/caption"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/caption"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_action_profile"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
 
-            <TextView
-                android:id="@+id/nolikes"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/userpic"
+                    android:layout_marginLeft="18dp"
+                    android:text="Name"
+                    android:textSize="18sp"
+                    android:layout_marginTop="18dp"/>
+
+            </LinearLayout>
+
+   <LinearLayout android:id="@+id/layoutimage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_below="@id/linearLayout">
+
+    <ImageView
+        android:id="@+id/imagepost"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop" />
+
+       <TextView
+           android:id="@+id/caption"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentStart="true"
+           android:layout_below="@+id/layoutimage"
+           android:layout_marginLeft="22dp"
+           android:layout_marginStart="22dp"
+           android:layout_marginTop="8dp"
+           android:text="TextView"
+           android:layout_marginBottom="5dp"/>
+
+     </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="18dp"
-                android:layout_toEndOf="@+id/userpic"
-                android:layout_toRightOf="@+id/userpic"
-                android:text="TextView" />
+                android:layout_below="@id/layoutimage"
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout2"
+                android:layout_margin="10dp"
+                >
+
+                <ImageView
+                    android:id="@+id/likeheart"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0"
+                    android:layout_alignLeft="@+id/caption"
+                    android:layout_alignStart="@+id/caption"
+                    android:src="@android:drawable/btn_star_big_on" />
+
+                <TextView
+                    android:id="@+id/nolikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="11dp"
+                    android:text="0" />
+
+                <ImageView
+                    android:id="@+id/comment"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignTop="@+id/nolikes"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0"
+                    android:layout_toEndOf="@+id/nolikes"
+                    android:layout_toRightOf="@+id/nolikes"
+                    android:src="?android:attr/listChoiceIndicatorMultiple" />
+
+            </LinearLayout>
+
+
 
 
         </RelativeLayout>

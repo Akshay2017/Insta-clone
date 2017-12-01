@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Chat Clone</string>
+    <string name="app_name">Insta-Clone</string>
     <string name="title_activity_main2">All Users</string>
     <string name="title_activity_chat_screen">Login</string>
     <string name="title_activity_userprofile">Userprofile</string>
