@@ -2,42 +2,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="15dp">
+    android:layout_height="70dp"
+  >
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilepic"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/requestlayout">
 
-    <TextView
-        android:id="@+id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/profilepic"
-        android:layout_toRightOf="@+id/profilepic"
-        android:paddingTop="8dp"
-        android:text="TextView"
-        android:textSize="20sp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilepic"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_action_profile"  />
 
-    <Button
-        android:id="@+id/fr"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_bg_rounded_corners"
-        android:textColor="@color/white"
-        android:text="request"
-        android:layout_marginRight="10dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="7"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            >
+
+            <TextView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:text="Nguyen Binh"
+                android:textAppearance="?android:attr/textAppearanceMedium"  />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/fr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/button_bg_rounded_corners"
+            android:textColor="@color/white"
+            android:text="request"
+            android:layout_marginRight="10dp"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_500"
+        android:layout_alignParentBottom="true"/>
+
 
 </RelativeLayout>

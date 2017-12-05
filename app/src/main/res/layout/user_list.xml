@@ -9,7 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@color/colorAccent"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/appBarLayout2">
 
@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@color/colorAccent"
             android:fitsSystemWindows="true"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
@@ -29,12 +29,11 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="match_parent"
         tools:listitem="@layout/item_request_list"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:paddingTop="20dp"
         android:layout_below="@+id/appBarLayout2" />
 
 

@@ -10,7 +10,7 @@
         android:id="@+id/relativeLayout4"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/nav_bar">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/mypic"
@@ -35,6 +35,7 @@
             android:layout_toEndOf="@+id/mypic"
             android:layout_toRightOf="@+id/mypic"
             android:text="TextView"
+            android:textColor="@color/white"
             android:textSize="35sp" />
 
     </RelativeLayout>

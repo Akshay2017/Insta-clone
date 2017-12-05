@@ -1,61 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.sith3.chatclone.Post.Comments">
 
-    <android.support.design.widget.AppBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/appBarLayout2">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:fitsSystemWindows="true"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:id="@+id/appBarLayout2">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:fitsSystemWindows="true"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
 
 
-        </android.support.v7.widget.Toolbar>
+            </android.support.v7.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/commentview"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_below="@+id/appBarLayout2"
-        android:layout_centerHorizontal="true"
-        tools:listitem="@layout/item_comments_list" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/commentview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            tools:listitem="@layout/item_comments_list"
+            android:layout_below="@id/appBarLayout2"
+            android:layout_above="@+id/linearLayoutcomment"/>
 
-    <EditText
-        android:id="@+id/usercomments"
-        android:layout_width="300dp"
-        android:padding="8dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:ems="10"
-        android:hint="Enter Your Comments"
-        android:layout_margin="10dp"
-        android:inputType="textPersonName" />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:elevation="10dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/linearLayoutcomment">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/commentsend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/usercomments"
-        android:layout_toEndOf="@+id/usercomments"
-        android:layout_toRightOf="@+id/usercomments"
-        android:layout_marginLeft="5dp"
-        android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_menu_send" />
-</RelativeLayout>
+            <EditText
+                android:id="@+id/usercomments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="57dp"
+                android:layout_marginRight="57dp"
+                android:hint=" Type your messages"
+                android:inputType="textPersonName"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:background="@drawable/edittext_boder"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/commentsend"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true"
+                app:fabSize="auto"
+                android:layout_margin="6dp"
+                app:srcCompat="@android:drawable/ic_menu_send" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</merge>

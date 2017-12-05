@@ -2,41 +2,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="6dp">
+    android:layout_height="65dp"
+    android:id="@+id/item_accept">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/requestuserpic"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/acceptr"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:src="@drawable/ic_action_profile"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/un"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/acceptr"
-        android:layout_alignBottom="@+id/acceptr"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/requestuserpic"
-        android:layout_toRightOf="@+id/requestuserpic"
-        android:text="TextView"
-        android:textSize="22sp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/requestuserpic"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_weight="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_action_profile" />
 
-    <Button
-        android:id="@+id/acceptr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="7"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/un"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Nguyen Binh"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/acceptr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4.5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_bg_rounded_corners"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_500"
+        android:layout_alignParentBottom="true"/>
+
 
 </RelativeLayout>

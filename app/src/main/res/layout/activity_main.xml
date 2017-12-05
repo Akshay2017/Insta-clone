@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="38dp"
+        android:paddingTop="10dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
@@ -23,7 +23,7 @@
             android:layout_below="@+id/appBarLayout2"
             android:layout_marginTop="10dp"
             android:paddingTop="15dp"
-            app:srcCompat="@drawable/ic_action_profile" />
+            android:src="@drawable/ic_action_profile"/>
 
         <!-- Name Label -->
         <android.support.design.widget.TextInputLayout
@@ -87,8 +87,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:padding="12dp"
+            android:layout_marginBottom="20dp"
+            android:padding="10dp"
             android:text="Create Account"
             android:background="@drawable/button_bg_rounded_corners"
             android:textColor="@color/white"/>
@@ -96,7 +96,7 @@
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
             android:text="Already a member? Login"
             android:gravity="center"
             android:textSize="16dip"

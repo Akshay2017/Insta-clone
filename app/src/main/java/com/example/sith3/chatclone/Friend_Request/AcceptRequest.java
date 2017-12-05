@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -116,8 +117,9 @@ public class AcceptRequest extends AppCompatActivity {
 
                             }else {
 
-                                viewHolder.un.setVisibility(View.GONE);
-                                viewHolder.acceptr.setVisibility(View.GONE);
+                                viewHolder.un.setVisibility(View.INVISIBLE);
+                                viewHolder.acceptr.setVisibility(View.INVISIBLE);
+                                viewHolder.view.setVisibility(View.INVISIBLE);
 
                             }
 
@@ -241,11 +243,16 @@ public class AcceptRequest extends AppCompatActivity {
         CircleImageView requestuserpic;
         TextView un;
         Button acceptr;
+        View view;
+        RelativeLayout relativeLayout;
         public RequestAdapter(View itemView) {
             super(itemView);
             requestuserpic= (CircleImageView) itemView.findViewById(R.id.requestuserpic);
             un = (TextView) itemView.findViewById(R.id.un);
             acceptr= (Button) itemView.findViewById(R.id.acceptr);
+            view=itemView.findViewById(R.id.line);
+            relativeLayout=itemView.findViewById(R.id.item_accept);
+
         }
 
     }

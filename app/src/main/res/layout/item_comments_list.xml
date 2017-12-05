@@ -1,36 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="75dp"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/cpic"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_action_profile" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/userm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cpic"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp"
-        android:layout_toEndOf="@+id/cpic"
-        android:layout_toRightOf="@+id/cpic"
-        android:text="Meassage"
-        android:textSize="15sp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cpic"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_action_profile"/>
 
-    <TextView
-        android:id="@+id/usernamem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/userm"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/userm"
-        android:text="Name"
-        android:textSize="15sp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="7"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/usernamem"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="Nguyen Binh"
+                android:textSize="22sp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/userm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:text="Nguyen Binh"
+                android:textSize="18sp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_500"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

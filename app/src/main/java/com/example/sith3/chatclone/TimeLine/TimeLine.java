@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,6 +51,7 @@ public class TimeLine extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 0;
     private Context mContext = TimeLine.this;
     private ImageView post;
+    RelativeLayout l;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,8 @@ public class TimeLine extends AppCompatActivity {
 
         postlist = (RecyclerView) findViewById(R.id.recyclerPost);
         postlist.setLayoutManager(new LinearLayoutManager(this));
+
+        l=findViewById(R.id.main_content);
 
 
         post= (ImageView) findViewById(R.id.imagepost);
@@ -96,11 +100,15 @@ public class TimeLine extends AppCompatActivity {
                 mUserInfo=FirebaseDatabase.getInstance().getReference().child("friends").child(mAuth.getCurrentUser().getUid());
 
                 final String postkey=getRef(position).getKey();
+
+
+
                 mUserInfo.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild(ps.getUseruid())){
+                        boolean puids= dataSnapshot.hasChild(ps.getUseruid());
 
+                        if (dataSnapshot.hasChild(ps.getUseruid())){
                             mData=FirebaseDatabase.getInstance().getReference().child("user").child(ps.getUseruid());
                             mData.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -109,7 +117,6 @@ public class TimeLine extends AppCompatActivity {
                                     viewHolder.name.setText(uidd);
                                     viewHolder.caption.setText(ps.getCaption());
                                     String userpic=dataSnapshot.child("imageurl").getValue().toString();
-
 
                                     Picasso.with(getApplicationContext()).load(userpic).into(viewHolder.circleImageViewuserpic);
                                     Picasso.with(getApplicationContext()).load(ps.getImageurl()).into(viewHolder.postimage);
@@ -124,16 +131,10 @@ public class TimeLine extends AppCompatActivity {
 
                         }else {
 
-
-                            RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) viewHolder.r.getLayoutParams();
-                            lp.height = 0;
-                            viewHolder.r.setLayoutParams(lp);
+                           viewHolder.r.setVisibility(View.VISIBLE);
                         }
 
-
-                            }
-
-
+                    }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
@@ -141,7 +142,7 @@ public class TimeLine extends AppCompatActivity {
                 });
 
                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
+                   @Override
                     public void onClick(View v) {
 
                         viewHolder.like.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +158,7 @@ public class TimeLine extends AppCompatActivity {
 
                                                 mLike.child(postkey).child(mAuth.getCurrentUser().getUid()).removeValue();
                                                 mProcessLike=false;
+
 
                                             }else {
 
@@ -184,6 +186,7 @@ public class TimeLine extends AppCompatActivity {
 
                viewHolder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
 
                 Intent c=new Intent(TimeLine.this,Comments.class);
@@ -247,10 +250,11 @@ public class TimeLine extends AppCompatActivity {
 
                         long totallikes=dataSnapshot.child(postkey).getChildrenCount();
                         String likes=Long.toString(totallikes);
+                        like.setImageResource( R.drawable.ic_thumb_up_blue_24dp );
                         nolikes.setText(likes+"Likes");
 
                     }else {
-
+                        like.setImageResource( R.drawable.ic_thumb_up_grey600_24dp );
                         nolikes.setText("");
                     }
 
@@ -261,6 +265,7 @@ public class TimeLine extends AppCompatActivity {
 
                             long totallikes=dataSnapshot.child(postkey).getChildrenCount();
                             String likes=Long.toString(totallikes);
+                            like.setImageResource( R.drawable.ic_thumb_up_blue_24dp );
                             nolikes.setText(likes+"Likes");
 
 
@@ -270,6 +275,7 @@ public class TimeLine extends AppCompatActivity {
 
                                 long totallikes=dataSnapshot.child(postkey).getChildrenCount();
                                 String likes=Long.toString(totallikes);
+                                like.setImageResource( R.drawable.ic_thumb_up_grey600_24dp );
                                 nolikes.setText(likes+"Likes");
 
 

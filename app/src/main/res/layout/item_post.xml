@@ -2,12 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:visibility="visible">
 
+    <RelativeLayout
+        android:id="@+id/relv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></RelativeLayout>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -15,7 +18,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="10dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
 
 
         <RelativeLayout
@@ -42,7 +50,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignStart="@+id/caption"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/ic_action_profile"
+                    android:src="@drawable/ic_account_circle_white_24dp"
                     app:civ_border_color="#FF000000"
                     app:civ_border_width="2dp" />
 
@@ -54,6 +62,7 @@
                     android:layout_marginLeft="18dp"
                     android:text="Name"
                     android:textSize="18sp"
+                    android:textColor="@color/white"
                     android:layout_marginTop="18dp"/>
 
             </LinearLayout>
@@ -85,6 +94,7 @@
            android:layout_marginStart="22dp"
            android:layout_marginTop="8dp"
            android:text="TextView"
+           android:textColor="@color/white"
            android:layout_marginBottom="5dp"/>
 
      </LinearLayout>
@@ -106,17 +116,18 @@
                     android:layout_weight="0"
                     android:layout_alignLeft="@+id/caption"
                     android:layout_alignStart="@+id/caption"
-                    android:src="@android:drawable/btn_star_big_on" />
+                   android:src="@drawable/ic_thumb_up_grey600_24dp" />
 
                 <TextView
                     android:id="@+id/nolikes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="11dp"
-                    android:text="0" />
+                    android:text="0"
+                    android:textColor="@color/white"/>
 
                 <ImageView
                     android:id="@+id/comment"
@@ -126,10 +137,10 @@
                     android:layout_marginLeft="19dp"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="0"
                     android:layout_toEndOf="@+id/nolikes"
                     android:layout_toRightOf="@+id/nolikes"
-                    android:src="?android:attr/listChoiceIndicatorMultiple" />
+                    android:layout_weight="0"
+                    android:src="@drawable/ic_comment_white_24dp" />
 
             </LinearLayout>
 

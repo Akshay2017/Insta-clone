@@ -12,10 +12,10 @@
         android:id="@+id/postimage"
         android:layout_width="match_parent"
         android:layout_height="185dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@android:drawable/ic_menu_gallery" />
 
     <Button
         android:id="@+id/uploadpost"

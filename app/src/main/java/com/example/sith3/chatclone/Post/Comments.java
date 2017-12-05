@@ -77,10 +77,7 @@ public class Comments extends AppCompatActivity {
                 mData.child("uid").setValue(senderuid);
                 mData.child("meassage").setValue(mess);
 
-
                 text.setText("");
-
-        Toast.makeText(this, "enter data", Toast.LENGTH_SHORT).show();
 
     }
     private FirebaseRecyclerAdapter<Comment, Commentviewholder> mAdapter;

@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.squareup.picasso.Picasso;
@@ -74,10 +75,10 @@ public class Friend_List extends AppCompatActivity {
     private FirebaseRecyclerAdapter<FriendsModel , FriendsAdapter> mAdapter;
 
     private void load() {
-        DatabaseReference friends = FirebaseDatabase.getInstance().getReference().child("friends").child(mAuth.getCurrentUser().getUid());
+        Query friendsquery = FirebaseDatabase.getInstance().getReference().child("friends").child(mAuth.getCurrentUser().getUid());
 
 
-        mAdapter = new FirebaseRecyclerAdapter<FriendsModel, FriendsAdapter>(FriendsModel.class, R.layout.item_friend_list, FriendsAdapter.class, friends) {
+        mAdapter = new FirebaseRecyclerAdapter<FriendsModel, FriendsAdapter>(FriendsModel.class, R.layout.item_friend_list, FriendsAdapter.class, friendsquery) {
             @Override
             protected void populateViewHolder(final FriendsAdapter viewHolder, final FriendsModel fmodel, final int position) {
                 mUserInfo=FirebaseDatabase.getInstance().getReference().child("user").child(fmodel.getUid());

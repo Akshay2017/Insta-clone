@@ -192,10 +192,11 @@ public class MeTimeline extends AppCompatActivity {
 
                         long totallikes=dataSnapshot.child(postkey).getChildrenCount();
                         String likes=Long.toString(totallikes);
+                        like.setImageResource( R.drawable.ic_thumb_up_blue_24dp );
                         nolikes.setText(likes+"Likes");
 
                     }else {
-
+                        like.setImageResource( R.drawable.ic_thumb_up_grey600_24dp );
                         nolikes.setText("");
                     }
 
@@ -206,6 +207,7 @@ public class MeTimeline extends AppCompatActivity {
 
                             long totallikes=dataSnapshot.child(postkey).getChildrenCount();
                             String likes=Long.toString(totallikes);
+                            like.setImageResource( R.drawable.ic_thumb_up_blue_24dp );
                             nolikes.setText(likes+"Likes");
 
 
@@ -215,6 +217,7 @@ public class MeTimeline extends AppCompatActivity {
 
                                 long totallikes=dataSnapshot.child(postkey).getChildrenCount();
                                 String likes=Long.toString(totallikes);
+                                like.setImageResource( R.drawable.ic_thumb_up_grey600_24dp );
                                 nolikes.setText(likes+"Likes");
 
 
